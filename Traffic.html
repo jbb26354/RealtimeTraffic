@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US" dir="ltr">
+
+<head>
+  
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Realtime Traffic for Phoenix</title>
+  
+  <style>
+    html, body, #map-canvas 
+    {
+      height: 100%;
+      margin: 0px;
+      padding: 0px
+    }
+  </style>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  
+  <script>
+  
+    function initialize() 
+    {
+      var myLatlng = new google.maps.LatLng(33.38358, -112.21670);
+      var mapOptions = 
+      {
+        zoom: 12,
+        center: myLatlng
+      }
+      
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      
+      var trafficLayer = new google.maps.TrafficLayer();
+      trafficLayer.setMap(map);
+    }
+    
+    google.maps.event.addDomListener(window, 'load', initialize);
+    
+  </script>
+
+</head>
+
+<body>
+
+  <div style=";background-color:#CCCCCC;">
+    <!-- don't do it this way. Chrome behaves badly when you do. 9-26-2015. 
+      <a href="view-source:http://www.deckerd26354.net/projects/MapGoogle/Traffic.html" target="_blank" style="font-size:15px;">view source</a>
+    -->
+    <a href="http://www.deckerd26354.net/projects/MapGoogle/Traffic.txt" target="_blank" style="font-size:15px;">view source</a>
+  </div>
+  <div id="map-canvas"></div>
+
+</body>
+</html>
